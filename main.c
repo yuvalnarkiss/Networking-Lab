@@ -1,5 +1,13 @@
+#include <stdint.h>
+
 void configRegister(){
-	
+	/*RCC_ENABLES*/
+	rccAHBADDRESS = (uint32_t*)(RCC_BASE_ADDRESS + AHBENR)
+	*rccAHBADDRESS = *rccAHBADDRESS | 0x11
+		
+	rccAPB2ADDRESS = (uint32_t*)(RCC_BASE_ADDRESS + APB2ENR)
+	*rccAPB2ADDRESS = (rccAPB2ADDRESS | (0x4011))
+		
 	
 	
 }
