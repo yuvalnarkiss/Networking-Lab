@@ -6,8 +6,13 @@ void configRegister(){
 	*rccAHBADDRESS = *rccAHBADDRESS | 0x11
 		
 	rccAPB2ADDRESS = (uint32_t*)(RCC_BASE_ADDRESS + APB2ENR)
-	*rccAPB2ADDRESS = (rccAPB2ADDRESS | (0x4011))
-		
+	*rccAPB2ADDRESS = (rccAPB2ADDRESS | (0x4010))
+	
+	/*GPIOC PC13 Enable*/
+	gpiocCrhADDRESS = (uinut32_t*)(GPIOC_BASE_ADDRESS + CRH)
+	*gpiocCrhADDRESS = 0x100000
+	
+	
 	
 	
 }
