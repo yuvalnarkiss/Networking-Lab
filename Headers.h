@@ -9,6 +9,11 @@
 #define TIM2_BASE             (APB1PERIPH_BASE + 0x0000)
 #define TIM3_BASE             (APB1PERIPH_BASE + 0x0400)
 #define TIM4_BASE             (APB1PERIPH_BASE + 0x0800)
+#define USART1BASE            0x40013800
+#define CR1                   0x0C
+#define CR2                   0x10
+#define CR3                   0x14
+#define USART1BASE_CR1        (USART1BASE + CR1)
 
 //configuration offset
 #define TIM_CR1_CEN			  (0x00000001)   // enable bit in CR1 register of all timers
