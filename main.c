@@ -1,23 +1,5 @@
 #include <stdint.h>
-
-void configRegister(){
-	/*RCC_ENABLES*/
-	rccAHBADDRESS = (uint32_t*)(RCC_BASE_ADDRESS + AHBENR)
-	*rccAHBADDRESS = *rccAHBADDRESS | 0x11
-		
-	rccAPB2ADDRESS = (uint32_t*)(RCC_BASE_ADDRESS + APB2ENR)
-	*rccAPB2ADDRESS = (rccAPB2ADDRESS | (0x4010))
-	
-	/*GPIOC PC13 Enable*/
-	gpiocCrhADDRESS = (uinut32_t*)(GPIOC_BASE_ADDRESS + CRH)
-	*gpiocCrhADDRESS = 0x100000
-	
-	
-	
-	
-}
-
-
+#include <Headers.h>
 
 int main(void)
 {
@@ -45,5 +27,24 @@ int main(void)
 }
  
 
-
-
+void configRegister(){
+	/*RCC_ENABLES*/
+	 uint32_t *rccAPB2ADDRESS = (uint32_t*)(RCC_BASE_ADDRESS + APB2ENR);
+	*rccAPB2ADDRESS = 0x00004014;
+	
+	/*GPIOA Enable(TX+RX USART1)*/
+	uint32_t *gpioaCrhADDRESS = (uint32_t*)(GPIOA_BASE_ADDRESS + CRH);
+	gpioaCrhADDRESS = 0x888444d4;
+	
+	/*GPIOC PC13 Enable*/
+	uint32_t *gpiocCrhADDRESS = (uint32_t*)(GPIOC_BASE_ADDRESS + CRH);
+	*gpiocCrhADDRESS = 0x44544444;
+	
+	/*USART1 Enable*/
+	uint32_t *usart1Cr1ADDRESS = (uint32_t*)(USART1BASE + CR1);
+ *usart1Cr1ADDRESS = 0x0000200C;
+	
+	
+	
+	
+}
